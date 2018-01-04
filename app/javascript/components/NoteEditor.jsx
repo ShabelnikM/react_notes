@@ -1,9 +1,15 @@
 import React from 'react';
+import axios from 'axios';
+import AlertMessage from './AlertMessage';
 
 export default class NoteEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: '' }
+    this.state = {
+      text: '',
+      error_status: false,
+      errors: ''
+    }
     this.handleTextChange = this.handleTextChange.bind(this)
     this.handleNoteAdd = this.handleNoteAdd.bind(this)
   }
@@ -13,14 +19,30 @@ export default class NoteEditor extends React.Component {
   }
 
   handleNoteAdd () {
-    let newNote = {
-      text: this.state.text,
-      color: 'yellow',
-      id: Date.now()
-    };
-
-    this.props.onNoteAdd(newNote);
-    this.setState({ text: '' });
+    axios({
+      method: 'post',
+      url: '/notes',
+      data: {
+        note: {
+          text: this.state.text,
+          color: 'yellow'
+        }
+      },
+      headers: {
+        'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
+      }
+    })
+    .then((response) => {
+      this.props.onNoteAdd(response.data);
+      this.setState({ text: '' });
+    })
+    .catch((error) => {
+      this.setState({
+        text: '',
+        error_status: true,
+        errors: error.response.data
+      });
+    });
   }
 
   render () {
@@ -33,7 +55,12 @@ export default class NoteEditor extends React.Component {
           value={this.state.text}
           onChange={this.handleTextChange}
         />
-        <button className="add-button" onClick={this.handleNoteAdd}>Add</button>
+        <div style={{'display': 'flex', 'flex-direction': 'row', 'justify-content': 'right'}}>
+          { this.state.error_status &&
+            <AlertMessage type="warning" errors={this.state.errors}/>
+          }
+          <button className="add-button" onClick={this.handleNoteAdd}>Add</button>
+        </div>
       </div>
     )
   }
