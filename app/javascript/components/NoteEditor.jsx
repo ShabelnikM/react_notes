@@ -7,15 +7,21 @@ export default class NoteEditor extends React.Component {
     super(props);
     this.state = {
       text: '',
+      color: 'yellow',
       error_status: false,
       errors: ''
     }
     this.handleTextChange = this.handleTextChange.bind(this)
+    this.handleColorChange = this.handleColorChange.bind(this)
     this.handleNoteAdd = this.handleNoteAdd.bind(this)
   }
 
   handleTextChange (event) {
     this.setState({ text: event.target.value });
+  }
+
+  handleColorChange (event) {
+    this.setState({ color: event.target.value });
   }
 
   handleNoteAdd () {
@@ -25,7 +31,7 @@ export default class NoteEditor extends React.Component {
       data: {
         note: {
           text: this.state.text,
-          color: 'yellow'
+          color: this.state.color
         }
       },
       headers: {
@@ -55,7 +61,15 @@ export default class NoteEditor extends React.Component {
           value={this.state.text}
           onChange={this.handleTextChange}
         />
-        <div style={{'display': 'flex', 'flex-direction': 'row', 'justify-content': 'right'}}>
+        <div className="color-picker">
+          Select your note color:
+          <input
+            type="color"
+            value={this.state.color}
+            onChange={this.handleColorChange}
+          />
+        </div>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'right'}}>
           { this.state.error_status &&
             <AlertMessage type="warning" errors={this.state.errors}/>
           }

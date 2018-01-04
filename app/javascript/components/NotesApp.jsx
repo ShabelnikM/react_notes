@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import NoteEditor from './NoteEditor.jsx';
 import NotesGrid from './NotesGrid.jsx';
 
@@ -16,9 +17,20 @@ export default class NotesApp extends React.Component {
   }
 
   handleNoteDelete (note) {
-    const noteId = note.id;
-    const newNotes = this.state.notes.filter((note) => note.id !== noteId);
-    this.setState({ notes: newNotes });
+    let noteId = note.id;
+    axios({
+      method: 'delete',
+      url: '/notes',
+      params: {
+        id: noteId
+      },
+      headers: {
+        'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
+      }
+    })
+    .then((response) => {
+      this.setState({ notes: response.data });
+    });
   }
 
   render () {

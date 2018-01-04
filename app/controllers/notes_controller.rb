@@ -17,7 +17,7 @@ class NotesController < ApplicationController
   def destroy
     note = Note.find(params[:id])
     if note.destroy
-      render json: {}, status: 204
+      render json: Note.all, status: 200
     else
       render json: { errors: note.errors }, status: 422
     end
