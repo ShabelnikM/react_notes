@@ -8,9 +8,12 @@
 #  color      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Note < ApplicationRecord;
+  belongs_to :user
 
-  validates :text, :color, presence: true
+  validates :color, :text, :user, presence: true
+  validates :text, length: { minimum: 2, maximum: 200 }
 end

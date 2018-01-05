@@ -1,0 +1,8 @@
+%ul.navbar
+  %li.logo
+    React Notes
+  %li.navbar-item
+    - if current_user.present?
+      = button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-link'
+    - else
+      = link_to 'Sign in', new_user_session_path, class: 'navbar-link'

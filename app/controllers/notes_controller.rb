@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 class NotesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
 
   def index
-    @notes = Note.all
+    @notes = Note.where(user: current_user) if current_user.present?
   end
 
   def create
-    note = Note.create(note_params)
+    note = current_user.notes.create(note_params)
     if note.save
       render json: note, status: 201
     else

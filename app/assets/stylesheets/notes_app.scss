@@ -15,7 +15,6 @@ body {
 }
 
 .notes-app {
-  //max-width: 960px;
   width: 100%;
 }
 
@@ -24,4 +23,18 @@ body {
   font-weight: 500;
   color: grey;
   text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+}
+
+.sign-in-btn {
+  display: block;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.sign-in-link {
+  text-decoration: none;
+  padding: 14px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 10px;
 }
