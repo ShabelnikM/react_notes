@@ -71,6 +71,8 @@ GEM
       responders
       warden (~> 1.2.3)
     dotenv (0.7.0)
+    dotenv-rails (0.7.0)
+      dotenv (= 0.7.0)
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -207,6 +209,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   devise
+  dotenv-rails
   foreman
   haml
   jbuilder (~> 2.5)
@@ -222,6 +225,9 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webpacker
   webpacker-react (~> 0.3.2)
+
+RUBY VERSION
+   ruby 2.4.3p205
 
 BUNDLED WITH
    1.16.1

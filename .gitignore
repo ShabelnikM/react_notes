@@ -26,5 +26,4 @@
 /node_modules
 
 .idea
-/config/database.yml
-/config/secrets.yml
+.env

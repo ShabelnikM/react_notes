@@ -8,6 +8,7 @@ end
 ruby '2.4.3'
 
 gem 'devise'
+gem 'dotenv-rails'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
