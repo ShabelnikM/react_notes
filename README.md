@@ -18,4 +18,4 @@ To start project run
 
 `rails db:create db:migrate`
 
-`foreman start -f Procfile.dev -p 3000` 
+`rails server` 
