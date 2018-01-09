@@ -8,7 +8,6 @@ end
 ruby '2.4.3'
 
 gem 'devise'
-gem 'dotenv-rails'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
@@ -22,6 +21,7 @@ gem 'webpacker-react', '~> 0.3.2'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
+  gem 'dotenv-rails'
   gem 'selenium-webdriver'
 end
 
