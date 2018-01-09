@@ -1,0 +1,16 @@
+.form-container {
+  text-align: center;
+}
+
+.field {
+  margin: 10px 0;
+
+  .password-note {
+    font-weight: 300;
+    color: grey;
+  }
+
+  input {
+    width: 50%;
+  }
+}

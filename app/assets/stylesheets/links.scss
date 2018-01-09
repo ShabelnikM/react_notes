@@ -1,0 +1,75 @@
+.sign-in-btn {
+  display: block;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.custom-link {
+  text-decoration: none;
+  padding: 14px 16px;
+  color: white;
+  border-radius: 10px;
+
+  &.sign-in {
+    background-color: #4CAF50;
+  }
+
+  &.sign-up {
+    background-color: deepskyblue;
+  }
+
+  &.password-btn {
+    background-color: #333;
+  }
+
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+
+    &:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+  }
+
+  &:hover span {
+    padding-right: 25px;
+
+    &:after {
+      opacity: 1;
+      right: 0;
+    }
+  }
+}
+
+input.form-button {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: 15px 16px;
+  display: inline-block;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.sign-in {
+    background-color: #4CAF50;
+  }
+
+  &.sign-up {
+    background-color: deepskyblue;
+  }
+
+  &.password-btn {
+    background-color: #333;
+  }
+}

@@ -1,0 +1,4 @@
+- if current_user.present?
+  = react_component 'NotesApp', notes: @notes
+- else
+  = render 'notes/about'

@@ -1,24 +1,21 @@
-# README
+# Sample Notes Board
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample application using Rails and React.
+Allow to registered users check, create and delete notes.
 
-Things you may want to cover:
+## Tech requirements
 
-* Ruby version
+- Rails 5.1.4
+- Ruby 2.4.3
+- Postgresql 
+- Webpacker with React.js
 
-* System dependencies
+## To Start project
 
-* Configuration
+To start project run
 
-* Database creation
+`bundle install`
 
-* Database initialization
+`rails db:create db:migrate`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`foreman start -f Procfile.dev -p 3000` 

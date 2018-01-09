@@ -1,0 +1,15 @@
+.alert-container {
+  flex: 0 1 80%;
+}
+
+.alert-message {
+  border-radius: 10px;
+  width: 70%;
+  text-align: center;
+
+  &.warning {
+    background-color: red;
+    color: white;
+    margin: 2px;
+  }
+}

@@ -1,0 +1,11 @@
+%ul.navbar
+  %li.navbar-item{ style: 'float: left;' }
+    = link_to 'React Notes', root_path, class: 'navbar-link'
+  - if current_user.present?
+    %li.navbar-item
+      = button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-link'
+  - else
+    %li.navbar-item
+      = link_to 'Sign up', new_user_registration_path, class: 'navbar-link'
+    %li.navbar-item
+      = link_to 'Sign in', new_user_session_path, class: 'navbar-link'
