@@ -22,5 +22,5 @@
       %br
       = f.password_field :password_confirmation, autocomplete: 'off'
     .actions
-      = f.submit 'Sign up'
-  = render 'devise/shared/links'
+      = f.submit 'Sign up', class: 'form-button sign-up'
+      = render 'devise/shared/links'
