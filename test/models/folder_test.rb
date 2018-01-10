@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: notes
+# Table name: folders
 #
 #  id         :integer          not null, primary key
-#  text       :text
-#  color      :string
+#  user_id    :integer
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer
-#  folder_id  :integer
 #
 
 require 'test_helper'
 
-class NoteTest < ActiveSupport::TestCase
+class FolderTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'notes#index'
-  resource :notes, only: %i[create destroy]
+  resources :folders, only: %i[show create destroy]
+  resources :notes, only: %i[create destroy]
 end

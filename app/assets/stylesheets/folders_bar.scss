@@ -1,0 +1,64 @@
+.folders-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.folder-form {
+  position: relative;
+  left: -185px;
+  text-align: left;
+  display: flex;
+
+  &:hover {
+    transition: 1s;
+    left: 0;
+  }
+
+  .textarea {
+    border-radius: 10px;
+  }
+
+  .add-folder-button {
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #44c767;
+    font-weight: bold;
+    border:1px solid #18ab29;
+    cursor: pointer;
+    margin: 6px;
+  }
+}
+
+.folders-list {
+  display: flex;
+
+  .folder {
+    background-color: green;
+    margin: 0 2px 2px 0;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    padding: 4px 16px;
+
+    .delete-folder {
+      display: none;
+      top:5px;
+      right:5px;
+      color: rgba(0,0,0,0.6);
+      cursor: pointer;
+    }
+
+    &:hover .delete-folder {
+      display: block;
+      position: absolute;
+      right: 1px;
+      top: 4px;
+    }
+  }
+}
