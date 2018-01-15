@@ -14,6 +14,7 @@ export default class NoteEditor extends React.Component {
     this.handleTextChange = this.handleTextChange.bind(this)
     this.handleColorChange = this.handleColorChange.bind(this)
     this.handleNoteAdd = this.handleNoteAdd.bind(this)
+    this.handleMessageClick = this.handleMessageClick.bind(this)
   }
 
   handleTextChange (event) {
@@ -51,6 +52,13 @@ export default class NoteEditor extends React.Component {
     });
   }
 
+  handleMessageClick () {
+    this.setState({
+      error_status: false,
+      errors: ''
+    });
+  }
+
   render () {
     return (
       <div className="note-editor">
@@ -71,7 +79,7 @@ export default class NoteEditor extends React.Component {
         </div>
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'right'}}>
           { this.state.error_status &&
-            <AlertMessage type="warning" errors={this.state.errors}/>
+            <AlertMessage type="warning" errors={this.state.errors} onClick={this.handleMessageClick}/>
           }
           <button className="add-button" onClick={this.handleNoteAdd}>Add</button>
         </div>

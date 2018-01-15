@@ -9,6 +9,7 @@ class NotesConnectionController < ApplicationController
   end
 
   def destroy
+    authorize @note
     update_action(@note, { folder: nil }, @folder.notes)
   end
 

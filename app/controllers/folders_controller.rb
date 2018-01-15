@@ -20,6 +20,7 @@ class FoldersController < ApplicationController
 
   def destroy
     folder = Folder.find(params[:id])
+    authorize folder
     destroy_action folder
   end
 

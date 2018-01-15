@@ -17,6 +17,7 @@ class NotesController < ApplicationController
 
   def destroy
     note = Note.find(params[:id])
+    authorize note
     destroy_action note
   end
 
