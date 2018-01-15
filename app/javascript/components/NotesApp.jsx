@@ -32,10 +32,7 @@ export default class NotesApp extends React.Component {
     let noteId = note.id;
     axios({
       method: 'delete',
-      url: '/notes',
-      params: {
-        id: noteId
-      },
+      url: `/notes/${noteId}`,
       headers: {
         'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
       }
@@ -49,10 +46,7 @@ export default class NotesApp extends React.Component {
     let folderId = folder.id;
     axios({
       method: 'delete',
-      url: '/folders',
-      params: {
-        id: folderId
-      },
+      url: `/folders/${folderId}`,
       headers: {
         'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
       }

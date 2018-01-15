@@ -11,10 +11,10 @@ export default class NoteEditor extends React.Component {
       error_status: false,
       errors: ''
     }
-    this.handleTextChange = this.handleTextChange.bind(this)
-    this.handleColorChange = this.handleColorChange.bind(this)
-    this.handleNoteAdd = this.handleNoteAdd.bind(this)
-    this.handleMessageClick = this.handleMessageClick.bind(this)
+    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
+    this.handleNoteAdd = this.handleNoteAdd.bind(this);
+    this.handleMessageClick = this.handleMessageClick.bind(this);
   }
 
   handleTextChange (event) {
