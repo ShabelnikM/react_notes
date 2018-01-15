@@ -16,4 +16,6 @@ class Folder < ApplicationRecord
 
   validates :title, :user, presence: true
   validates :title, length: { minimum: 2, maximum: 50 }
+
+  scope :by_user, ->(user) { where(user: user) }
 end

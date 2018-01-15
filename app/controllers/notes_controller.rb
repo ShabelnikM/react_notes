@@ -5,8 +5,8 @@ class NotesController < ApplicationController
 
   def index
     if current_user.present?
-      @folders = Folder.where(user: current_user)
-      @notes = Note.where(user: current_user)
+      @folders = Folder.by_user(current_user)
+      @notes = Note.by_user(current_user).by_empty_folder
     end
   end
 

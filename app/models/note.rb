@@ -18,4 +18,7 @@ class Note < ApplicationRecord
 
   validates :color, :text, :user, presence: true
   validates :text, length: { minimum: 2, maximum: 200 }
+
+  scope :by_user, ->(user) { where(user: user) }
+  scope :by_empty_folder, ->{ where(folder: nil) }
 end

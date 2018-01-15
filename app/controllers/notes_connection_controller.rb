@@ -1,28 +1,15 @@
 # frozen_string_literal: true
 class NotesConnectionController < ApplicationController
+  include Shared
   before_action :authenticate_user!
   before_action :set_resources
 
-  def create
-    case
-      when @folder && @note && @folder.user == current_user && @note.user == current_user
-        @note.update(folder: @folder)
-        render json: { status: 'Note added' }, status: 200
-      when @folder && @note && @folder.user == current_user
-        render json: { errors: 'You are not note owner' }, status: 422
-      when @folder && @note && @note.user == current_user
-        render json: { errors: 'You are not folder owner' }, status: 422
-      else
-        render json: { errors: 'Action not allowed' }, status: 403
-    end
+  def update
+    update_action(@note, { folder: @folder }, { status: 'Note added' })
   end
 
   def destroy
-    if @note.update(folder: nil)
-      render json: @folder.notes, status: 200
-    else
-      render json: { errors: @note.errors }, status: 422
-    end
+    update_action(@note, { folder: nil }, @folder.notes)
   end
 
   private

@@ -11,11 +11,19 @@ module Shared
     end
   end
 
+  def update_action(resource, updated_params, responce)
+    if resource.update(updated_params)
+      render json: responce, status: 200
+    else
+      render json: resource.errors, status: 422
+    end
+  end
+
   def destroy_action(resource)
     if resource.destroy
       render json: resource.class.all, status: 200
     else
-      render json: { errors: resource.errors }, status: 422
+      render json: resource.errors, status: 422
     end
   end
 end
