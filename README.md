@@ -2,6 +2,9 @@
 
 Sample application using Rails and React.
 Allow to registered users check, create and delete notes.
+Also they are able to create folders and move notes into it.
+
+The live demo can be find here: https://shab-react-notes.herokuapp.com/
 
 ## Tech requirements
 
