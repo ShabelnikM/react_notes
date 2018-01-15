@@ -13,7 +13,7 @@ export default class FolderGrid extends React.Component {
 
   handleNoteDelete (note) {
     let noteId = note.id;
-    let folderId = this.props.folder_id;
+    let folderId = this.props.folder.id;
     axios({
       method: 'delete',
       url: `${folderId}/notes/${noteId}`,
@@ -29,7 +29,7 @@ export default class FolderGrid extends React.Component {
   render () {
     return (
       <div className="notes-app">
-        <h2 className="app-header">NotesApp</h2>
+        <h2 className="app-header">Folder: {this.props.folder.title}</h2>
         <NotesGrid notes={this.state.notes} onDelete={ this.handleNoteDelete } />
       </div>
     );
