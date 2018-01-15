@@ -6,14 +6,17 @@ export default class FolderGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: props.notes
+      notes: props.notes,
+      error_status: false,
+      error: ''
     };
-    this.handleNoteDelete = this.handleNoteDelete.bind(this);
+    this.handleNoteDelete = this.handleNoteDelete.bind(this)
+    this.handleMessageClick = this.handleMessageClick.bind(this)
   }
 
   handleNoteDelete (note) {
     let noteId = note.id;
-    let folderId = this.props.folder_id;
+    let folderId = this.props.folder.id;
     axios({
       method: 'delete',
       url: `${folderId}/notes/${noteId}`,
@@ -23,14 +26,30 @@ export default class FolderGrid extends React.Component {
     })
     .then((response) => {
       this.setState({ notes: response.data });
+    })
+    .catch((error) => {
+      this.setState({
+        error_status: true,
+        error: error.response.data.error
+      });
+    });
+  }
+
+  handleMessageClick () {
+    this.setState({
+      error_status: false,
+      error: ''
     });
   }
 
   render () {
     return (
       <div className="notes-app">
-        <h2 className="app-header">NotesApp</h2>
-        <NotesGrid notes={this.state.notes} onDelete={ this.handleNoteDelete } />
+        <h2 className="app-header">Folder: {this.props.folder.title}</h2>
+        { this.state.error_status &&
+          <p className="alert-message warning large" onClick={this.handleMessageClick}>{this.state.error}</p>
+        }
+        <NotesGrid notes={this.state.notes} onDelete={this.handleNoteDelete} />
       </div>
     );
   }

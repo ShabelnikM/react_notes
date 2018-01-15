@@ -6,6 +6,7 @@ class FoldersController < ApplicationController
   def show
     folder = Folder.find(params[:id])
     if folder.user == current_user
+      @folder = folder
       @notes = folder.notes
     else
       redirect_to root_url
@@ -19,6 +20,7 @@ class FoldersController < ApplicationController
 
   def destroy
     folder = Folder.find(params[:id])
+    authorize folder
     destroy_action folder
   end
 

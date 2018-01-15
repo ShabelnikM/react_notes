@@ -6,20 +6,15 @@ body {
   font-family: sans-serif;
   font-weight: 300;
   background-color: #eaeaea;
+  margin: 0;
 }
 
 h2 {
   text-align: center;
 }
 
-#mount-point {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .notes-app {
-  width: 100%;
+  margin: 20px;
 }
 
 .app-header {
