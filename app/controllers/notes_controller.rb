@@ -1,27 +1,23 @@
 # frozen_string_literal: true
 class NotesController < ApplicationController
+  include Shared
   before_action :authenticate_user!, except: %i[index]
 
   def index
-    @notes = Note.where(user: current_user) if current_user.present?
+    if current_user.present?
+      @folders = Folder.by_user(current_user)
+      @notes = Note.by_user(current_user).by_empty_folder
+    end
   end
 
   def create
     note = current_user.notes.create(note_params)
-    if note.save
-      render json: note, status: 201
-    else
-      render json: note.errors, status: 422
-    end
+    create_action note
   end
 
   def destroy
     note = Note.find(params[:id])
-    if note.destroy
-      render json: Note.all, status: 200
-    else
-      render json: { errors: note.errors }, status: 422
-    end
+    destroy_action note
   end
 
   private

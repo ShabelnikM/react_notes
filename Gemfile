@@ -7,6 +7,7 @@ end
 
 ruby '2.4.3'
 
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'

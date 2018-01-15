@@ -28,5 +28,6 @@ class User < ApplicationRecord
          :trackable,
          :validatable
 
+  has_many :folders
   has_many :notes
 end
