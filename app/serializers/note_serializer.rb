@@ -3,8 +3,6 @@
 class NoteSerializer < ActiveModel::Serializer
   attributes %i[
     id
-    user
-    folder
     color
     text
   ]

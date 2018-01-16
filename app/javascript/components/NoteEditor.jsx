@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+
 import AlertMessage from './AlertMessage';
 
 export default class NoteEditor extends React.Component {
@@ -86,4 +88,8 @@ export default class NoteEditor extends React.Component {
       </div>
     )
   }
+}
+
+NoteEditor.propTypes = {
+  onNoteAdd: PropTypes.func
 }

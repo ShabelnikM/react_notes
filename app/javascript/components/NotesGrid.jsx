@@ -1,5 +1,7 @@
 import React from 'react';
 import Masonry from 'masonry-layout';
+import PropTypes from 'prop-types';
+
 import Note from './Note.jsx';
 
 export default class NotesGrid extends React.Component {
@@ -40,3 +42,12 @@ export default class NotesGrid extends React.Component {
   }
 }
 
+NotesGrid.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      color: PropTypes.string,
+      text: PropTypes.string
+    }),
+  ),
+  onDelete: PropTypes.func
+}

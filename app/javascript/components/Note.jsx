@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Note extends React.Component {
   render () {
@@ -10,4 +11,9 @@ export default class Note extends React.Component {
       </div>
     );
   }
+}
+
+Note.propTypes = {
+  color: PropTypes.string,
+  onDelete: PropTypes.func
 }
