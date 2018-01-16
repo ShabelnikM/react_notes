@@ -7,6 +7,7 @@ class FoldersController < ApplicationController
     folder = Folder.find(params[:id])
     if folder.user == current_user
       @folder = folder
+      @folders = Folder.by_user(current_user)
       @notes = folder.notes
     else
       redirect_to root_url

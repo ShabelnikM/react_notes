@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+
 import NoteEditor from './NoteEditor.jsx';
 import FolderForm from './FolderForm.jsx';
 import NotesGrid from './NotesGrid.jsx';
@@ -51,9 +53,9 @@ export default class NotesApp extends React.Component {
         'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
       }
     })
-      .then((response) => {
-        this.setState({ folders: response.data });
-      });
+    .then((response) => {
+      this.setState({ folders: response.data });
+    });
   }
 
   render () {
@@ -69,4 +71,18 @@ export default class NotesApp extends React.Component {
       </div>
     );
   }
+}
+
+NotesApp.propTypes = {
+  folders: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string
+    }),
+  ),
+  notes: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      color: PropTypes.string,
+      text: PropTypes.string
+    }),
+  )
 }

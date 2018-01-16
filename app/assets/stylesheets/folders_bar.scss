@@ -40,11 +40,15 @@
 
   .folder {
     background-color: green;
-    margin: 0 2px 2px 0;
+    margin: 0 5px 0 0;
     font-size: 20px;
     text-align: center;
     position: relative;
     padding: 4px 16px;
+
+    &.active {
+      background-color: blue;
+    }
 
     .delete-folder {
       display: none;
@@ -60,5 +64,17 @@
       right: 1px;
       top: 4px;
     }
+  }
+}
+
+.home-link {
+  background-color: green;
+  margin: 0 5px 0 0;
+  padding: 5px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
   }
 }

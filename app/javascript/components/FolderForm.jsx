@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 export default class FolderForm extends React.Component {
   constructor(props) {
@@ -55,4 +56,8 @@ export default class FolderForm extends React.Component {
       </div>
     )
   }
+}
+
+FolderForm.propTypes = {
+  onFolderAdd: PropTypes.func
 }

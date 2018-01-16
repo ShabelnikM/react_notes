@@ -3,7 +3,6 @@
 class FolderSerializer < ActiveModel::Serializer
   attributes %i[
     id
-    user
     title
   ]
 
